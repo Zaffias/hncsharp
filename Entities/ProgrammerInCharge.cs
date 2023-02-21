@@ -1,7 +1,7 @@
 namespace HNProject.Entities;
 using HNProject.Interfaces;
 
-public class ProgrammerInCharge
+public class ProgrammerInCharge: IEmployee
 {
     public List<Employee> Employees {get; set;} = new();
 
