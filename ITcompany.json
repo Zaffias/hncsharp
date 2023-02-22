@@ -1,1 +1,85 @@
-{"Employees":[{"Activity":"Espabila","Period":"0001-01-01T00:00:00","PaymentType":0,"FirstName":"pepe","LastName":"XD","Payment":2}]}
+{
+  "ProjectTeams": [
+    {
+      "ProgrammersInCharge": [
+        {
+          "Employees": [
+            {
+              "Activity": "Web development",
+              "Period": "2022-02-22T00:00:00",
+              "FirstName": "Alice",
+              "LastName": "Smith",
+              "Payment": 500
+            },
+            {
+              "Activity": "Mobile development",
+              "Period": "2022-02-22T00:00:00",
+              "FirstName": "Bob",
+              "LastName": "Johnson",
+              "Payment": 600
+            }
+          ],
+          "Activity": "Project management",
+          "Period": "2022-02-22T00:00:00",
+          "FirstName": "John",
+          "LastName": "Doe",
+          "Payment": 1000
+        }
+      ],
+      "TypeOfTeam": 0,
+      "ProjectName": "Web development"
+    },
+    {
+        "ProgrammersInCharge": [
+          {
+            "Employees": [
+              {
+                "Activity": "Web development",
+                "Period": "2022-02-22T00:00:00",
+                "FirstName": "Alice",
+                "LastName": "Smith",
+                "Payment": 500
+              },
+              {
+                "Activity": "Mobile development",
+                "Period": "2022-02-22T00:00:00",
+                "FirstName": "Bob",
+                "LastName": "Johnson",
+                "Payment": 600
+              }
+            ],
+            "Activity": "Project management",
+            "Period": "2022-02-22T00:00:00",
+            "FirstName": "John",
+            "LastName": "Doe",
+            "Payment": 1000
+          },
+          {
+            "Employees": [
+              {
+                "Activity": "Web development",
+                "Period": "2022-02-22T00:00:00",
+                "FirstName": "Alice",
+                "LastName": "Smith",
+                "Payment": 500
+              },
+              {
+                "Activity": "Mobile development",
+                "Period": "2022-02-22T00:00:00",
+                "FirstName": "Bob",
+                "LastName": "Johnson",
+                "Payment": 600
+              }
+            ],
+            "Activity": "Project management",
+            "Period": "2022-02-22T00:00:00",
+            "FirstName": "John",
+            "LastName": "Doe",
+            "Payment": 1000
+          }
+        ],
+        "TypeOfTeam": 0,
+        "ProjectName": "Web development"
+      }
+  ]
+}
