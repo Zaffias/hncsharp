@@ -34,7 +34,7 @@ internal class Program
                 else throw new Exception("You must choose an option");
             }catch(Exception e){
                 Console.WriteLine(e.Message);
-                //HR result
+                // -2147024894 is the code that filenotfound error generates.
                 if(e.HResult == -2147024894){
                     Console.WriteLine("Creating new file with dummy properties...");
                     JsonIo.ITCompanyToJSON("./itcompany.json", dummy);
