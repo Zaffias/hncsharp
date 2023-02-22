@@ -73,14 +73,15 @@ internal class Program
                     else throw new Exception("That option does not exist");
                 }
                     else throw new Exception("You must choose an option");
-            }catch(Exception e){
+            }catch(FileNotFoundException e)
+            {
                 Console.WriteLine(e.Message);
-                // -2147024894 is the code that filenotfound error generates.
-                // This generates a new itcompany.json if no file is provided.
-                if(e.HResult == -2147024894){
-                    Console.WriteLine("Creating new file with dummy properties...");
-                    JsonIo.ITCompanyToJSON("./itcompany.json", dummy);
-                }
+                Console.WriteLine("Creating new file with dummy properties...");
+                JsonIo.ITCompanyToJSON("./itcompany.json", dummy);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
