@@ -3,8 +3,7 @@ using HNProject.Interfaces;
 
 public class ProgrammerInCharge: IEmployee
 {
-    protected static int _employeeId = 1;
-
+    
     private int _workedDays;
     private DateTime endDate;
     public string? Activity{get; set;}
