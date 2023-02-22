@@ -3,7 +3,7 @@
 *.png
 *.html
 debug/
-./release
+release
 x64/
-./bin
-./obj
+bin
+obj
