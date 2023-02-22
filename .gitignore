@@ -1,5 +1,5 @@
 .vscode
-./*.json
+*.json
 *.png
 *.html
 debug/

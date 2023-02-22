@@ -17,13 +17,12 @@ internal class Program
                 var inputString = Console.ReadLine();
                 if(inputString != null){
                     int option = int.Parse(inputString);
+                    ITCompany itCompany = JsonIo.JSONtoITCompany("./ITcompany.json");
                     if(Enum.IsDefined(typeof(ConsoleOptions), option))
                     {
                         switch(option){
-                            case (int)ConsoleOptions.REPORT:
-                            ITCompany itCompany = JsonIo.JSONtoITCompany("./ITcompany.json");
-                            Reporter.Report(itCompany);
-                            // JsonIo.ITCompanyToJSON("./itcompany.json", dummy);
+                            case (int)ConsoleOptions.REPORT:   
+                                Reporter.Report(itCompany);
                                 break;
                             case (int)ConsoleOptions.EXIT:
                                 done = true;
@@ -35,6 +34,11 @@ internal class Program
                 else throw new Exception("You must choose an option");
             }catch(Exception e){
                 Console.WriteLine(e.Message);
+                //HR result
+                if(e.HResult == -2147024894){
+                    Console.WriteLine("Creating new file with dummy properties...");
+                    JsonIo.ITCompanyToJSON("./itcompany.json", dummy);
+                }
             }
         }
         

@@ -1,94 +1,64 @@
 {
   "ProjectTeams": [
     {
+      "HalfPayed": false,
       "ProgrammersInCharge": [
         {
-          "Employees": [
-            {
-              "Activity": "Web development",
-              "StartDate": "2022-02-22T00:00:00",
-              "EndDate": "2022-02-23T00:00:00",
-              "FirstName": "Alice",
-              "LastName": "Smith",
-              "Payment": 500
-            },
-            {
-              "Activity": "Mobile development",
-              "StartDate": "2022-02-22T00:00:00",
-              "EndDate": "2022-02-23T00:00:00",
-              "FirstName": "Bob",
-              "LastName": "Johnson",
-              "Payment": 600
-            }
-          ],
           "Activity": "Project management",
           "StartDate": "2022-02-22T00:00:00",
-          "EndDate": "2022-02-23T00:00:00",
           "FirstName": "John",
           "LastName": "Doe",
-          "Payment": 1000
+          "Payment": 1000,
+          "EndDate": "2022-03-22T00:00:00"
+        },
+        {
+          "Activity": "Frontend",
+          "StartDate": "2022-02-22T00:00:00",
+          "FirstName": "Morpheus",
+          "LastName": "Sleeping",
+          "Payment": 500,
+          "EndDate": "2022-03-22T00:00:00"
+        },
+        {
+          "Activity": "Backend",
+          "StartDate": "2022-02-22T00:00:00",
+          "FirstName": "Neo",
+          "LastName": "Believer",
+          "Payment": 600,
+          "EndDate": "2022-03-22T00:00:00"
         }
       ],
-      "TypeOfTeam": 0,
-      "ProjectName": "Web development"
+      "ProjectName": "Web Development"
     },
     {
-        "ProgrammersInCharge": [
-          {
-            "Employees": [
-              {
-                "Activity": "Web development",
-                "StartDate": "2022-02-22T00:00:00",
-                "EndDate": "2022-02-23T00:00:00",
-                "FirstName": "Alice",
-                "LastName": "Smith",
-                "Payment": 500
-              },
-              {
-                "Activity": "Mobile development",
-                "StartDate": "2022-02-22T00:00:00",
-                "EndDate": "2022-02-23T00:00:00",
-                "FirstName": "Bob",
-                "LastName": "Johnson",
-                "Payment": 600
-              }
-            ],
-            "Activity": "Project management",
-            "StartDate": "2022-02-22T00:00:00",
-            "EndDate": "2022-02-23T00:00:00",
-            "FirstName": "John",
-            "LastName": "Doe",
-            "Payment": 1000
-          },
-          {
-            "Employees": [
-              {
-                "Activity": "Web development",
-                "StartDate": "2022-02-22T00:00:00",
-                "EndDate": "2022-02-23T00:00:00",
-                "FirstName": "Alice",
-                "LastName": "Smith",
-                "Payment": 500
-              },
-              {
-                "Activity": "Mobile development",
-                "StartDate": "2022-02-22T00:00:00",
-                "EndDate": "2022-02-23T00:00:00",
-                "FirstName": "Bob",
-                "LastName": "Johnson",
-                "Payment": 600
-              }
-            ],
-            "Activity": "Project management",
-            "StartDate": "2022-02-22T00:00:00",
-            "EndDate": "2022-02-23T00:00:00",
-            "FirstName": "John",
-            "LastName": "Doe",
-            "Payment": 1000
-          }
-        ],
-        "TypeOfTeam": 0,
-        "ProjectName": "Web development"
-      }
+      "HalfPayed": false,
+      "ProgrammersInCharge": [
+        {
+          "Activity": "Project management",
+          "StartDate": "2022-02-22T00:00:00",
+          "FirstName": "Cat",
+          "LastName": "Whiskers",
+          "Payment": 1000,
+          "EndDate": "2022-03-22T00:00:00"
+        },
+        {
+          "Activity": "Frontend",
+          "StartDate": "2022-02-22T00:00:00",
+          "FirstName": "Doggo",
+          "LastName": "Smith",
+          "Payment": 500,
+          "EndDate": "2022-03-22T00:00:00"
+        },
+        {
+          "Activity": "Backend",
+          "StartDate": "2022-02-22T00:00:00",
+          "FirstName": "Agent",
+          "LastName": "Johnson",
+          "Payment": 600,
+          "EndDate": "2022-03-22T00:00:00"
+        }
+      ],
+      "ProjectName": "Mobile Development"
+    }
   ]
 }

@@ -1,11 +1,28 @@
 namespace HNProject.Entities;
 using HNProject.Interfaces;
 
-public class ProgrammerInCharge: Employee
+public class ProgrammerInCharge: IEmployee
 {
-    public List<Employee> Employees {get; set;}
+    private DateTime endDate;
+    public string? Activity{get; set;}
+    public DateTime StartDate{get; set;}
+    public string FirstName{get; set;}
+    public string LastName{get; set;}
+    public float Payment{get; set;}
+    public DateTime EndDate
+    {
+        get{return endDate;}
+        set{
+            if(value < StartDate)
+            {
+                throw new Exception("EndDate must be after StartDate");
+            }
+            endDate = value;
+        }
+    }
 
-    public ProgrammerInCharge(){
-        Employees = new List<Employee>();
+    public TimeSpan GetInterval()
+    {
+        return EndDate - StartDate;
     }
 }

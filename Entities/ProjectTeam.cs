@@ -3,22 +3,12 @@ using HNProject.Interfaces;
 using HNProject.Helpers;
 public class ProjectTeam
 {
-    public enum TypeOfTeamEnum
-    {
-        FullPayed,
-        HalfPayed
-    }
+    private bool _halfPayed = false;
+    public bool HalfPayed{get => _halfPayed; set => _halfPayed = value;}
     public List<ProgrammerInCharge> ProgrammersInCharge{get; set;}
     public string? ProjectName{get; set;}
     public ProjectTeam()
     {
         ProgrammersInCharge = new List<ProgrammerInCharge>();
     }
-    public ProjectTeam(string projectName)
-    {
-        ProgrammersInCharge = new List<ProgrammerInCharge>();
-        ProjectName = projectName;
-    }
-    public TypeOfTeamEnum TypeOfTeam{get; set;}
-
 }
