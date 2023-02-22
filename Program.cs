@@ -1,7 +1,7 @@
 ﻿using HNProject.Helpers;
 using HNProject.Entities;
 using HNProject.Enums;
-
+using System.Reflection;
 
 internal class Program
 {
@@ -13,7 +13,7 @@ internal class Program
         {
             try{
                 ITCompany itCompany = JsonIo.JSONtoITCompany("./itcompany.json");
-                Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1.Report\n2.Update\n");
+                Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1.Report\n2.Update\n3.Add");
                 var inputString = Console.ReadLine();
                 if(inputString != null){
                     int option = int.Parse(inputString);
@@ -36,6 +36,26 @@ internal class Program
                                 }
                                 JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
                                 Console.WriteLine("Updated succesfully");
+                                break;
+                            case (int)ConsoleOptions.ADD:
+                                Console.WriteLine("Select the team you want to add the programmer to:\n");
+                                int index = 1;
+                                foreach(var projectTeam in itCompany.ProjectTeams)
+                                {
+                                    Console.WriteLine($"{index}.{projectTeam.ProjectName}");
+                                    index++;
+                                }
+                                int addOption = int.Parse(Console.ReadLine());
+                                if(Enumerable.Range(1, itCompany.ProjectTeams.Count).Contains(addOption))
+                                {
+                                    ProjectTeam selectedTeam = itCompany.ProjectTeams[addOption - 1];
+                                    ITCompany.AddProgrammer(selectedTeam);
+                                    JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
+                                }
+                                else
+                                {
+                                    throw new Exception("You must choose an existing group");
+                                }
                                 break;
                         }
                     }
