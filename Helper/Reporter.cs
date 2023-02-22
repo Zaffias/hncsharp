@@ -3,8 +3,11 @@ namespace HNProject.Helpers;
 using HNProject.Entities;
 using HNProject.Interfaces;
 
-public class Reporter: IReporter{
-   public void Report(ProjectTeam projectTeam){
-    var programmers = projectTeam.ProgrammerInCharges;
+public class Reporter{
+
+   public static void Report(ProjectTeam projectTeam){
+      var programmersInCharge = projectTeam.ProgrammersInCharge;
+
+      Console.WriteLine("IT-COMPANY report:\n\nIT Company is currently composed of {0} programmers", programmersInCharge.Count);
    }
 }

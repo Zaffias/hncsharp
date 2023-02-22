@@ -1,29 +1,43 @@
-﻿using HNProject.Entities;
+﻿using HNProject.Helpers;
+using HNProject.Entities;
+using HNProject.Enums;
+using HNProject.Interfaces;
 using System.IO;
 using System.Text.Json;
 using System.Text.Encodings;
+
 internal class ITCompany
 {
     static void Main(string[] args){
-        string path = "./ITcompany.json";
-        Employee employee = new();
-        employee.Activity = "Espabila";
-        employee.FirstName = "pepe";
-        employee.LastName = "XD";
-        employee.Period = new();
-        employee.PaymentType = Employee.EmployeePayment.FullPaid;
-        employee.Payment = 2;
-        List<Employee> employees = new();
-        employees.Add(employee);
-        ProgrammerInCharge jefaso = new(employees);
+        var reporter = new Reporter();
         
-
-        string jsonObject = JsonSerializer.Serialize<ProgrammerInCharge>(jefaso);
-        if(!File.Exists(path))
-        {
-            FileStream sw = File.Create(path);
-        }else{
-            File.WriteAllText(path, jsonObject);
+        ProjectTeam xd = JsonIo.JSONtoProjectTeam("./ITcompany.json");
+        
+        bool done = false;
+        while(!done){
+        try{
+            Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1. Report\n");
+            var inputString = Console.ReadLine();
+            if(inputString != null){
+                int option = int.Parse(inputString);
+                if(Enum.IsDefined(typeof(ConsoleOptions), option))
+                {
+                    switch(option){
+                        case (int)ConsoleOptions.REPORT:
+                            Reporter.Report(xd);
+                            break;
+                        case (int)ConsoleOptions.EXIT:
+                            done = true;
+                            break;
+                    }
+                }
+                else throw new Exception("That option does not exist");
+            }
+            else throw new Exception("You must choose an option");
+        }catch(Exception e){
+            Console.WriteLine(e.Message);
         }
+        }
+        
     }
 }
