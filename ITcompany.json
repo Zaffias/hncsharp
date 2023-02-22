@@ -4,19 +4,12 @@
       "HalfPayed": false,
       "ProgrammersInCharge": [
         {
-          "Activity": "Project management",
-          "StartDate": "2022-02-22T00:00:00",
-          "FirstName": "John",
-          "LastName": "Doe",
-          "Payment": 1000,
-          "EndDate": "2022-03-22T00:00:00"
-        },
-        {
           "Activity": "Frontend",
           "StartDate": "2022-02-22T00:00:00",
           "FirstName": "Morpheus",
           "LastName": "Sleeping",
-          "Payment": 500,
+          "PaymentPerDay": 40,
+          "WorkedDays": 21,
           "EndDate": "2022-03-22T00:00:00"
         },
         {
@@ -24,7 +17,8 @@
           "StartDate": "2022-02-22T00:00:00",
           "FirstName": "Neo",
           "LastName": "Believer",
-          "Payment": 600,
+          "PaymentPerDay": 25,
+          "WorkedDays": 21,
           "EndDate": "2022-03-22T00:00:00"
         }
       ],
@@ -34,19 +28,12 @@
       "HalfPayed": false,
       "ProgrammersInCharge": [
         {
-          "Activity": "Project management",
-          "StartDate": "2022-02-22T00:00:00",
-          "FirstName": "Cat",
-          "LastName": "Whiskers",
-          "Payment": 1000,
-          "EndDate": "2022-03-22T00:00:00"
-        },
-        {
           "Activity": "Frontend",
           "StartDate": "2022-02-22T00:00:00",
           "FirstName": "Doggo",
           "LastName": "Smith",
-          "Payment": 500,
+          "PaymentPerDay": 68,
+          "WorkedDays": 21,
           "EndDate": "2022-03-22T00:00:00"
         },
         {
@@ -54,7 +41,8 @@
           "StartDate": "2022-02-22T00:00:00",
           "FirstName": "Agent",
           "LastName": "Johnson",
-          "Payment": 600,
+          "PaymentPerDay": 45,
+          "WorkedDays": 21,
           "EndDate": "2022-03-22T00:00:00"
         }
       ],

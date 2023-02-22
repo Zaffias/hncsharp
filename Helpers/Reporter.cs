@@ -23,9 +23,9 @@ public class Reporter{
          Console.ResetColor();
          Console.WriteLine();
          foreach(var programmerInCharge in projectTeam.ProgrammersInCharge){
-            Console.WriteLine("- {0} {1} - In charge of {2} from {3} to {4} (duration: {5} days.), this month placeholder, costing a total of {6}$", 
+            Console.WriteLine("- {0} {1} - In charge of {2} from {3} to {4} (duration: {5} days.), has worked a total of {7} hours, costing a total of {6}$", 
                programmerInCharge.LastName, programmerInCharge.FirstName, programmerInCharge.Activity, 
-               programmerInCharge.StartDate.ToString("MM/dd/yyyy"), programmerInCharge.EndDate.ToString("MM/dd/yyyy"), programmerInCharge.GetInterval().TotalDays, programmerInCharge.Payment); 
+               programmerInCharge.StartDate.ToString("MM/dd/yyyy"), programmerInCharge.EndDate.ToString("MM/dd/yyyy"), programmerInCharge.GetInterval().TotalDays, programmerInCharge.TotalCost(), programmerInCharge.WorkedDays); 
 
          }
       }

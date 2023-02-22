@@ -3,12 +3,32 @@ using HNProject.Interfaces;
 
 public class ProgrammerInCharge: IEmployee
 {
+    protected static int _employeeId = 1;
+
+    private int _workedDays;
     private DateTime endDate;
     public string? Activity{get; set;}
     public DateTime StartDate{get; set;}
     public string FirstName{get; set;}
     public string LastName{get; set;}
-    public float Payment{get; set;}
+    public float PaymentPerDay{get; set;} 
+    public int  WorkedDays{
+        get => _workedDays; 
+        set => _workedDays = value;
+    }
+    
+    public ProgrammerInCharge()
+    {
+        if(FirstName == null)
+        {
+            FirstName = "I have no name :(";
+        }
+        if(LastName == null)
+        {
+            LastName = "I have no surname :(";
+        }
+        
+    }
     public DateTime EndDate
     {
         get{return endDate;}
@@ -24,5 +44,10 @@ public class ProgrammerInCharge: IEmployee
     public TimeSpan GetInterval()
     {
         return EndDate - StartDate;
+    }
+
+    public float TotalCost()
+    {
+        return PaymentPerDay * WorkedDays;
     }
 }

@@ -18,9 +18,9 @@ public class JsonIo{
         return itCompany;
     }
 
-    public static async void ITCompanyToJSON(string fileName, ITCompany itCompany){
+    public static  void ITCompanyToJSON(string fileName, ITCompany itCompany){
         using FileStream createStream = File.Create(fileName);
-        await JsonSerializer.SerializeAsync(createStream, itCompany, new JsonSerializerOptions {WriteIndented = true});
-        await createStream.DisposeAsync();
+        JsonSerializer.Serialize(createStream, itCompany, new JsonSerializerOptions {WriteIndented = true});
+        createStream.Close();
     }
 }

@@ -6,6 +6,7 @@ public interface IEmployee
     public DateTime StartDate{get; set;}
     public string FirstName{get; set;}
     public string LastName{get; set;}
-    public float Payment{get; set;}
+    public float PaymentPerDay{get; set;}
+    public int WorkedDays{get; set;}
     TimeSpan GetInterval();
 }
