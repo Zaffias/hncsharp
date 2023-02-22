@@ -2,8 +2,8 @@
 ./*.json
 *.png
 *.html
-[Dd]ebug/
-[Rr]elease/
+debug/
+./release
 x64/
-[Bb]in/
-[Oo]bj/
+./bin
+./obj
