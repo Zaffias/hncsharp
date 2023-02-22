@@ -11,4 +11,15 @@ public class ProjectTeam
     {
         ProgrammersInCharge = new List<ProgrammerInCharge>();
     }
+
+    /// This methods is necessary to manage the programmer salary based on the type of team.
+    /// So instead of adding programmers to the list via List.Add() we have to use this method.
+    public void AddProgrammer(ProgrammerInCharge programmer)
+    {
+        if(HalfPayed)
+        {
+            programmer.PaymentPerDay /= 2;
+        }
+        ProgrammersInCharge.Add(programmer);
+    }
 }

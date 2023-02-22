@@ -34,6 +34,6 @@ public class ITCompany
         
         DateTime endDate = DateTime.Parse(Console.ReadLine());
         
-        projectTeam.ProgrammersInCharge.Add(new ProgrammerInCharge{FirstName = firstName, LastName = lastName, Activity = activity, StartDate = startDate, EndDate = endDate, PaymentPerDay = payment, WorkedDays = 0});
+        projectTeam.AddProgrammer(new ProgrammerInCharge{FirstName = firstName, LastName = lastName, Activity = activity, StartDate = startDate, EndDate = endDate, PaymentPerDay = payment, WorkedDays = 0});
     }
 }
