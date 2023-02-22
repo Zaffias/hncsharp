@@ -7,12 +7,17 @@ internal class Program
 {
     static void Main(string[] args){
 
+        // The dummy it company.
+        //
         ITCompany dummy = DummyITCompany.GenerateITCompany();
         bool done = false;
         while(!done)
         {
             try{
+                // Tries to load the file where the data is located.
+                // If no file is provided a new one will be automatically created.
                 ITCompany itCompany = JsonIo.JSONtoITCompany("./itcompany.json");
+                // Reads user input
                 Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1.Report\n2.Update\n3.Add");
                 var inputString = Console.ReadLine();
                 if(inputString != null){
@@ -20,12 +25,15 @@ internal class Program
                     if(Enum.IsDefined(typeof(ConsoleOptions), option))
                     {
                         switch(option){
+                            // Output the IT Company.
                             case (int)ConsoleOptions.REPORT:   
                                 Reporter.Report(itCompany);
                                 break;
+                            // Exits the program
                             case (int)ConsoleOptions.EXIT:
                                 done = true;
                                 break;
+                            // Adds one day to the working count of employees
                             case (int)ConsoleOptions.UPDATE:
                                 foreach(var projectTeam in itCompany.ProjectTeams)
                                 {
@@ -37,6 +45,8 @@ internal class Program
                                 JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
                                 Console.WriteLine("Updated succesfully");
                                 break;
+                            // Adds a new employee to an  already defined team.
+                            // The teams can be defined in the JSON.
                             case (int)ConsoleOptions.ADD:
                                 Console.WriteLine("Select the team you want to add the programmer to:\n");
                                 int index = 1;
@@ -51,6 +61,7 @@ internal class Program
                                     ProjectTeam selectedTeam = itCompany.ProjectTeams[addOption - 1];
                                     ITCompany.AddProgrammer(selectedTeam);
                                     JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
+                                    Console.WriteLine("***CREATED NEW EMPLOYEE***");
                                 }
                                 else
                                 {
@@ -65,6 +76,7 @@ internal class Program
             }catch(Exception e){
                 Console.WriteLine(e.Message);
                 // -2147024894 is the code that filenotfound error generates.
+                // This generates a new itcompany.json if no file is provided.
                 if(e.HResult == -2147024894){
                     Console.WriteLine("Creating new file with dummy properties...");
                     JsonIo.ITCompanyToJSON("./itcompany.json", dummy);

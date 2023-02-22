@@ -1,6 +1,8 @@
 namespace HNProject.Helpers;
 using System.Text.Json;
 using HNProject.Entities;
+
+/// Helper class to wrap the System.Text.Json api provided by .NET
 public class JsonIo{
 
     private static string _getJSONFileContent(string path){

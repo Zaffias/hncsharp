@@ -2,6 +2,7 @@ namespace HNProject.Helpers;
 
 using HNProject.Entities;
 
+/// Helper class that reports to the console based on the ITcompany class pased.
 
 public class Reporter{
 
