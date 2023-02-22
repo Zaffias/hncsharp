@@ -22,7 +22,7 @@ public class Reporter{
       Console.WriteLine("PROJECT TEAMS DETAILS:\n");
 
       // I decided to nest the programmers inside of the programmer in charge, this could lead to iterating a bit more, but for reasons of organization I decided to keep it this way.
-      // This should not be a problem in a real world enviroment reading for a database.
+      // This should not be a problem in a real world enviroment reading from a database.
       foreach(var projectTeam in itCompany.ProjectTeams){
          Console.BackgroundColor = ConsoleColor.Blue;
          Console.ForegroundColor = ConsoleColor.White;
@@ -30,11 +30,12 @@ public class Reporter{
          Console.ResetColor();
          Console.WriteLine();
          foreach(var programmerInCharge in projectTeam.ProgrammersInCharge){
-            Console.WriteLine("- {0} {1} - In charge of {2} from {3} to placeholder, this month placeholder, costing a total of {4}$", 
-               programmerInCharge.LastName, programmerInCharge.FirstName, programmerInCharge.Activity, programmerInCharge.Period, programmerInCharge.Payment);
+            Console.WriteLine("- {0} {1} - In charge of {2} from {3} to {4} (duration: {5} days.), this month placeholder, costing a total of {6}$", 
+               programmerInCharge.LastName, programmerInCharge.FirstName, programmerInCharge.Activity, 
+               programmerInCharge.StartDate.ToString("MM/dd/yyyy"), programmerInCharge.EndDate.ToString("MM/dd/yyyy"), programmerInCharge.GetInterval().TotalDays, programmerInCharge.Payment); 
             foreach(var employee in programmerInCharge.Employees){
-                           Console.WriteLine("- {0} {1} - In charge of {2} from {3} to placeholder, this month placeholder, costing a total of {4}$", 
-               employee.LastName, employee.FirstName, employee.Activity, employee.Period, employee.Payment);
+                           Console.WriteLine("- {0} {1} - In charge of {2} from {3} to {4} (duration: {5} days.), this month placeholder, costing a total of {6}$", 
+               employee.LastName, employee.FirstName, employee.Activity, employee.StartDate.ToString("MM/dd/yyyy"), employee.EndDate.ToString("MM/dd/yyyy"), employee.GetInterval().TotalDays, employee.Payment);
             }
          }
       }
