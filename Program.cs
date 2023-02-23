@@ -18,7 +18,7 @@ internal class Program
                 // If no file is provided a new one will be automatically created.
                 ITCompany itCompany = JsonIo.JSONtoITCompany("./itcompany.json");
                 // Reads user input
-                Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1.Report\n2.Update\n3.Add");
+                Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1.Report\n2.Update\n3.Add employee\n4.Add team");
                 var inputString = Console.ReadLine();
                 if(inputString != null){
                     int option = int.Parse(inputString);
@@ -47,7 +47,7 @@ internal class Program
                                 break;
                             // Adds a new employee to an  already defined team.
                             // The teams can be defined in the JSON.
-                            case (int)ConsoleOptions.ADD:
+                            case (int)ConsoleOptions.ADDEMPLOYEE:
                                 Console.WriteLine("Select the team you want to add the programmer to:\n");
                                 int index = 1;
                                 foreach(var projectTeam in itCompany.ProjectTeams)
@@ -68,6 +68,10 @@ internal class Program
                                     throw new Exception("You must choose an existing group");
                                 }
                                 break;
+                                case (int)ConsoleOptions.ADDTEAM:
+                                    ITCompany.AddProjectTeam(itCompany);
+                                    JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
+                                    break;
                         }
                     }
                     else throw new Exception("That option does not exist");
@@ -75,6 +79,7 @@ internal class Program
                     else throw new Exception("You must choose an option");
             }catch(FileNotFoundException e)
             {
+                // Creates a new itcompany.json if it didn't exist.
                 Console.WriteLine(e.Message);
                 Console.WriteLine("Creating new file with dummy properties...");
                 JsonIo.ITCompanyToJSON("./itcompany.json", dummy);

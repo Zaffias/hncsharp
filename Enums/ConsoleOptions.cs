@@ -4,6 +4,7 @@ namespace HNProject.Enums;
 public enum ConsoleOptions{
     REPORT = 1,
     UPDATE,
-    ADD,
+    ADDEMPLOYEE,
+    ADDTEAM,
     EXIT = 0
 }

@@ -36,4 +36,23 @@ public class ITCompany
         
         projectTeam.AddProgrammer(new ProgrammerInCharge{FirstName = firstName, LastName = lastName, Activity = activity, StartDate = startDate, EndDate = endDate, PaymentPerDay = payment, WorkedDays = 0});
     }
+
+    /// Creates a new project team on the IT Company referenced on the parameter
+    public static void AddProjectTeam(ITCompany itCompany)
+    {
+        bool halfPayed = false;
+        Console.WriteLine("What is the name of the project?");
+        string? projectName = Console.ReadLine().Trim();
+        if(projectName == null || projectName.Length == 0)
+            throw new FormatException("You must introduce a project name");
+        
+        Console.WriteLine("Is the project half payed? (y/n)");
+        string? answer = Console.ReadLine().Trim().ToLower();
+        if (answer != "y" && answer != "n")
+            throw new FormatException("The answer must be y or n");
+        if(answer == "y")
+            halfPayed = true;
+        itCompany.ProjectTeams.Add(new ProjectTeam{ProjectName = projectName, HalfPayed = halfPayed});
+        Console.WriteLine("****YAY! New project created****");
+    }
 }
