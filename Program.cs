@@ -25,7 +25,7 @@ internal class Program
                     if(Enum.IsDefined(typeof(ConsoleOptions), option))
                     {
                         switch(option){
-                            // Output the IT Company.
+                            // Output the IT Company
                             case (int)ConsoleOptions.REPORT:   
                                 Reporter.Report(itCompany);
                                 break;
@@ -48,30 +48,15 @@ internal class Program
                             // Adds a new employee to an  already defined team.
                             // The teams can be defined in the JSON.
                             case (int)ConsoleOptions.ADDEMPLOYEE:
-                                Console.WriteLine("Select the team you want to add the programmer to:\n");
-                                int index = 1;
-                                foreach(var projectTeam in itCompany.ProjectTeams)
-                                {
-                                    Console.WriteLine($"{index}.{projectTeam.ProjectName}");
-                                    index++;
-                                }
-                                int addOption = int.Parse(Console.ReadLine());
-                                if(Enumerable.Range(1, itCompany.ProjectTeams.Count).Contains(addOption))
-                                {
-                                    ProjectTeam selectedTeam = itCompany.ProjectTeams[addOption - 1];
-                                    ITCompany.AddProgrammer(selectedTeam);
-                                    JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
-                                    Console.WriteLine("***CREATED NEW EMPLOYEE***");
-                                }
-                                else
-                                {
-                                    throw new Exception("You must choose an existing group");
-                                }
+                                ProjectTeam selectedTeam = ITCompany.SelectTeam("Select which team the employee will be added\n", itCompany);
+                                ITCompany.AddProgrammer(selectedTeam);
+                                JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
                                 break;
-                                case (int)ConsoleOptions.ADDTEAM:
-                                    ITCompany.AddProjectTeam(itCompany);
-                                    JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
-                                    break;
+                                // Creates a new project team.
+                            case (int)ConsoleOptions.ADDTEAM:
+                                ITCompany.AddProjectTeam(itCompany);
+                                JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
+                                break;
                         }
                     }
                     else throw new Exception("That option does not exist");

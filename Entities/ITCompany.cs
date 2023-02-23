@@ -35,6 +35,7 @@ public class ITCompany
         DateTime endDate = DateTime.Parse(Console.ReadLine());
         
         projectTeam.AddProgrammer(new ProgrammerInCharge{FirstName = firstName, LastName = lastName, Activity = activity, StartDate = startDate, EndDate = endDate, PaymentPerDay = payment, WorkedDays = 0});
+        Console.WriteLine("***CREATED NEW EMPLOYEE***");
     }
 
     /// Creates a new project team on the IT Company referenced on the parameter
@@ -55,4 +56,27 @@ public class ITCompany
         itCompany.ProjectTeams.Add(new ProjectTeam{ProjectName = projectName, HalfPayed = halfPayed});
         Console.WriteLine("****YAY! New project created****");
     }
+
+    /// Returns the selected team
+    public static ProjectTeam SelectTeam(string message, ITCompany itCompany)
+    {
+        Console.WriteLine(message);
+        int index = 1;
+        foreach(var projectTeam in itCompany.ProjectTeams)
+        {
+            Console.WriteLine($"{index}.{projectTeam.ProjectName}");
+            index++;
+        }
+        int addOption = int.Parse(Console.ReadLine());
+        if(Enumerable.Range(1, itCompany.ProjectTeams.Count).Contains(addOption))
+        {
+            return itCompany.ProjectTeams[addOption - 1];
+        }
+        else
+        {
+            throw new Exception("You must choose an existing group");
+        }
+    }
 }
+
+
