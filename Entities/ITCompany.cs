@@ -11,18 +11,18 @@ public class ITCompany
     public static void AddProgrammer(ProjectTeam projectTeam)
     {
         Console.WriteLine("Insert the programmer first name:");
-        string? firstName = Console.ReadLine();
-        if(firstName == null || firstName.Any(x => !char.IsLetter(x)))
+        string? firstName = Console.ReadLine().Trim();
+        if(firstName == null || firstName.Any(x => !char.IsLetter(x)) || firstName.Length == 0)
             throw new FormatException("Formatting was incorrect, a name can only consist of letters");
 
         Console.WriteLine("Insert the programmer last name:");
-        string? lastName = Console.ReadLine();
-        if(lastName == null || lastName.Any(x => !char.IsLetter(x)))
+        string? lastName = Console.ReadLine().Trim();
+        if(lastName == null || lastName.Any(x => !char.IsLetter(x)) || lastName.Length == 0)
             throw new FormatException("Formatting was incorrect, a name can only consist of letters");
         
         Console.WriteLine("Insert the programmer activity:");
-        string? activity = Console.ReadLine();
-        if(activity == null)
+        string? activity = Console.ReadLine().Trim();
+        if(activity == null || activity.Length == 0)
             throw new FormatException("You must introduce an activity");
         
         DateTime startDate = DateTime.Now;
