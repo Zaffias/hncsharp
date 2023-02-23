@@ -6,5 +6,6 @@ public enum ConsoleOptions{
     UPDATE,
     ADDEMPLOYEE,
     ADDTEAM,
+    DELETE,
     EXIT = 0
 }

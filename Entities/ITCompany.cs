@@ -57,8 +57,8 @@ public class ITCompany
         Console.WriteLine("****YAY! New project created****");
     }
 
-    /// Returns the selected team
-    public static ProjectTeam SelectTeam(string message, ITCompany itCompany)
+    /// Returns the selected team and the index of where is located on the list
+    public static Tuple<ProjectTeam, int> SelectTeam(string message, ITCompany itCompany)
     {
         Console.WriteLine(message);
         int index = 1;
@@ -70,13 +70,19 @@ public class ITCompany
         int addOption = int.Parse(Console.ReadLine());
         if(Enumerable.Range(1, itCompany.ProjectTeams.Count).Contains(addOption))
         {
-            return itCompany.ProjectTeams[addOption - 1];
+            return Tuple.Create(itCompany.ProjectTeams[addOption - 1], addOption);
         }
         else
         {
             throw new Exception("You must choose an existing group");
         }
     }
+
+    public static void DeleteTeam(Tuple<ProjectTeam, int> projectTeam, ITCompany itCompany)
+    {
+        itCompany.ProjectTeams.RemoveAt(projectTeam.Item2 - 1);
+        Console.WriteLine($"***TEAM DELETED***");
+    } 
 }
 
 

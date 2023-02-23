@@ -15,7 +15,7 @@ public class JsonIo{
     public static ITCompany JSONtoITCompany(string path){
         ITCompany? itCompany = JsonSerializer.Deserialize<ITCompany>(_getJSONFileContent(path));
         if(itCompany == null || itCompany.ProjectTeams.Count == 0){
-            throw new Exception("Couldn't deserialize the JSON file, check if the formatting is correct");
+            throw new JsonException("Couldn't deserialize the JSON file, check if the formatting is correct");
         }
         return itCompany;
     }
