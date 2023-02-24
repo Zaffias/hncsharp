@@ -17,7 +17,7 @@ internal class Program
                 // Tries to load the file where the data is located.
                 // If no file is provided a new one will be automatically created.
                 ITCompany itCompany = JsonIo.JSONtoITCompany("./itcompany.json");
-                // Reads user input
+                // Reads user input 
                 Console.WriteLine("\nWhat would you like to do?\n0.Exit \n1.Report\n2.Update\n3.Add employee\n4.Add team\n5.Delete team");
                 var inputString = Console.ReadLine();
                 if(inputString != null){
@@ -54,11 +54,12 @@ internal class Program
                                 JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
                                 break;
                             }
-                                // Creates a new project team.
+                            // Creates a new project team.
                             case (int)ConsoleOptions.ADDTEAM:
                                 ITCompany.AddProjectTeam(itCompany);
                                 JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
                                 break;
+                            // Deletes an existing project.
                             case (int)ConsoleOptions.DELETE:
                             {
                                 Tuple<ProjectTeam, int> selectedTeam = ITCompany.SelectTeam("Select which team you want to delete\n", itCompany);
@@ -70,8 +71,9 @@ internal class Program
                     }
                     else throw new Exception("That option does not exist");
                 }
-                    else throw new Exception("You must choose an option");
-            }catch(FileNotFoundException e)
+                else throw new Exception("You must choose an option");
+            }
+            catch(FileNotFoundException e)
             {
                 // Creates a new itcompany.json if it didn't exist.
                 Console.WriteLine(e.Message);
@@ -81,6 +83,8 @@ internal class Program
             // Regenerates the dummy if the JSON is malformed
             catch(JsonException e)
             {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Creating new file with dummy properties...");
                 File.Delete("./itcompany.json");
                 JsonIo.ITCompanyToJSON("./itcompany.json", dummy);
             }
