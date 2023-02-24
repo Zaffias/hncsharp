@@ -18,9 +18,17 @@ This will read the file `itcompany.json` located in the root directory and gener
 
 Adds one more day to the working days of the employees.
 
-#### Add
+#### Add Employee
 
 Adds an employee to the selected programming team.
+
+#### Add Team
+
+Adds a team to the ITcompany.
+
+#### Delete Team
+
+Deletes a team from the IT company.
 
 #### Exit
 
