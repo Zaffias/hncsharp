@@ -8,7 +8,7 @@ To run the application use `dotnet run` on the directory where Chsarpconsole.csp
 A `itcompany.json` is needed to load the program.
 If the file  `itcompany.json` does not exist a new one will be created automatically using dummy data.
 When updating or creating a new employee the data will be saved automatically on the JSON.
-The application has a basic CLI interface, you can select up to 4 options:
+The application has a basic CLI interface, you can select up to 6 options:
 
 #### Report
 
