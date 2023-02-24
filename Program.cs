@@ -2,12 +2,11 @@
 using HNProject.Entities;
 using HNProject.Enums;
 using System.Text.Json;
-using System.IO;
 internal class Program
 {
     static void Main(string[] args){
 
-        // The dummy it company.
+        // Creates a dummy ITcompany that will be loaded if no itcompany.json is located in the root directory.
         //
         ITCompany dummy = DummyITCompany.GenerateITCompany();
         bool done = false;
@@ -46,7 +45,6 @@ internal class Program
                                 Console.WriteLine("Updated succesfully");
                                 break;
                             // Adds a new employee to an  already defined team.
-                            // The teams can be defined in the JSON.
                             case (int)ConsoleOptions.ADDEMPLOYEE:
                             {
                                 Tuple<ProjectTeam, int> selectedTeam = ITCompany.SelectTeam("Select which team the employee will be added\n", itCompany);
@@ -59,7 +57,7 @@ internal class Program
                                 ITCompany.AddProjectTeam(itCompany);
                                 JsonIo.ITCompanyToJSON("./itcompany.json", itCompany);
                                 break;
-                            // Deletes an existing project.
+                            // Deletes an existing project team.
                             case (int)ConsoleOptions.DELETE:
                             {
                                 Tuple<ProjectTeam, int> selectedTeam = ITCompany.SelectTeam("Select which team you want to delete\n", itCompany);
