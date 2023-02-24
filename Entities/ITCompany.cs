@@ -11,17 +11,17 @@ public class ITCompany
     public static void AddProgrammer(ProjectTeam projectTeam)
     {
         Console.WriteLine("Insert the programmer first name:");
-        string? firstName = Console.ReadLine().Trim();
+        string? firstName = Console.ReadLine()?.Trim();
         if(firstName == null || firstName.Any(x => !char.IsLetter(x)) || firstName.Length == 0)
             throw new FormatException("Formatting was incorrect, a name can only consist of letters");
 
         Console.WriteLine("Insert the programmer last name:");
-        string? lastName = Console.ReadLine().Trim();
+        string? lastName = Console.ReadLine()?.Trim();
         if(lastName == null || lastName.Any(x => !char.IsLetter(x)) || lastName.Length == 0)
             throw new FormatException("Formatting was incorrect, a name can only consist of letters");
         
         Console.WriteLine("Insert the programmer activity:");
-        string? activity = Console.ReadLine().Trim();
+        string? activity = Console.ReadLine()?.Trim();
         if(activity == null || activity.Length == 0)
             throw new FormatException("You must introduce an activity");
         
@@ -43,12 +43,12 @@ public class ITCompany
     {
         bool halfPayed = false;
         Console.WriteLine("What is the name of the project?");
-        string? projectName = Console.ReadLine().Trim();
+        string? projectName = Console.ReadLine()?.Trim();
         if(projectName == null || projectName.Length == 0)
             throw new FormatException("You must introduce a project name");
         
         Console.WriteLine("Is the project half payed? (y/n)");
-        string? answer = Console.ReadLine().Trim().ToLower();
+        string? answer = Console.ReadLine()?.Trim().ToLower();
         if (answer != "y" && answer != "n")
             throw new FormatException("The answer must be y or n");
         if(answer == "y")
